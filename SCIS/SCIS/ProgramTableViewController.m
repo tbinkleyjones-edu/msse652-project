@@ -8,7 +8,7 @@
 
 #import "ProgramTableViewController.h"
 #import "ProgramSvc.h"
-#import "ProgramSvcFake.h"
+#import "ProgramSvcJson.h"
 #import "CourseTableViewController.h"
 
 @interface ProgramTableViewController ()
@@ -16,18 +16,28 @@
 @end
 
 @implementation ProgramTableViewController {
-    id service;
+    id <ProgramSvc> _service;
+    NSArray *_programs;
 }
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    service = [[ProgramSvcFake alloc] init];
+- (void) setService:(id <ProgramSvc>) service {
+    _service = service;
+    [_service setDelegate:self];
+    [_service retrieveProgramsAsync];
+}
+- (BOOL) areProgramsLoaded {
+    return _programs != nil;
 }
 
-- (void)setProgramSvc:(id)programSvc {
-        service = programSvc;
-}
+
+#pragma mark - UIViewController
+
+
+//- (void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//    NSLog(@"awakeFromNib");
+//}
 
 //- (id)initWithStyle:(UITableViewStyle)style
 //{
@@ -39,15 +49,32 @@
 //    return self;
 //}
 
-//- (void)viewDidLoad
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"viewDidLoad");
+
+    if (_service == nil) {
+        [self setService:[[ProgramSvcJson alloc] init]];
+    }
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+//- (void)viewWillAppear:(BOOL)animated
 //{
-//    [super viewDidLoad];
-//    
-//    // Uncomment the following line to preserve selection between presentations.
-//    // self.clearsSelectionOnViewWillAppear = NO;
-//    
-//    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    [super viewWillAppear:animated];
+//    NSLog(@"viewWillAppear");
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    NSLog(@"viewDidAppear");
 //}
 
 //- (void)didReceiveMemoryWarning
@@ -67,8 +94,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of programs.
-    NSArray *programs = [service retrieveAllPrograms];
-    return programs.count;
+    return _programs.count;
 }
 
 
@@ -77,7 +103,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Program *program = [[service retrieveAllPrograms] objectAtIndex:indexPath.row];
+    Program *program = [[_service retrievePrograms] objectAtIndex:indexPath.row];
     cell.textLabel.text = program.name;
     
     return cell;
@@ -133,11 +159,21 @@
 
     if ([[segue identifier] isEqualToString:@"FromProgramToCourse"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Program *program = [[service retrieveAllPrograms] objectAtIndex:indexPath.row];
-        NSArray *courses = [service retrieveAllCourseForProgramId:program.programID];
-        [[segue destinationViewController] setCourses:courses];
+        Program *program = [_programs objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setProgram:program];
     }
 }
 
+#pragma mark - ProgramSvcDelegate
+
+- (void)didFinishRetrievingPrograms:(NSArray *)programs {
+    _programs = programs;
+    [self.tableView reloadData];
+    NSLog(@"programs loaded");
+}
+
+- (void)didFinishRetrievingCourses:(NSArray *)courses {
+
+}
 
 @end

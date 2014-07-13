@@ -23,6 +23,9 @@
 		221E50281968AD3100F83582 /* ProgramSvcFake.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E50271968AD3100F83582 /* ProgramSvcFake.m */; };
 		221E502B1968AE2E00F83582 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E502A1968AE2E00F83582 /* Program.m */; };
 		221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E502D1968AF4300F83582 /* ProgramTableViewController.m */; };
+		221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B11971D83700E00801 /* ProgramSvcJson.m */; };
+		221E52B41971D8EA00E00801 /* ProgramSvcJsonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B31971D8EA00E00801 /* ProgramSvcJsonTest.m */; };
+		221E52B71971DBCA00E00801 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B61971DBCA00E00801 /* Course.m */; };
 		223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */; };
 		223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B51969E35E00D327B9 /* CourseTableViewController.m */; };
 		223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */; };
@@ -57,12 +60,18 @@
 		221E501819689CD500F83582 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		221E501A19689CD500F83582 /* ProgramTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgramTableViewControllerTests.m; sourceTree = "<group>"; };
 		221E50251968ACE800F83582 /* ProgramSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramSvc.h; sourceTree = "<group>"; };
-		221E50261968AD3100F83582 /* ProgramSvcFake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramSvcFake.h; sourceTree = "<group>"; };
-		221E50271968AD3100F83582 /* ProgramSvcFake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcFake.m; sourceTree = "<group>"; };
+		221E50261968AD3100F83582 /* ProgramSvcFake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramSvcFake.h; path = ../SCIS/ProgramSvcFake.h; sourceTree = "<group>"; };
+		221E50271968AD3100F83582 /* ProgramSvcFake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramSvcFake.m; path = ../SCIS/ProgramSvcFake.m; sourceTree = "<group>"; };
 		221E50291968AE2E00F83582 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		221E502A1968AE2E00F83582 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		221E502C1968AF4300F83582 /* ProgramTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTableViewController.h; sourceTree = "<group>"; };
 		221E502D1968AF4300F83582 /* ProgramTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTableViewController.m; sourceTree = "<group>"; };
+		221E52AF1971A37500E00801 /* ProgramSvcDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramSvcDelegate.h; sourceTree = "<group>"; };
+		221E52B01971D83700E00801 /* ProgramSvcJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramSvcJson.h; sourceTree = "<group>"; };
+		221E52B11971D83700E00801 /* ProgramSvcJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJson.m; sourceTree = "<group>"; };
+		221E52B31971D8EA00E00801 /* ProgramSvcJsonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonTest.m; sourceTree = "<group>"; };
+		221E52B51971DBCA00E00801 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		221E52B61971DBCA00E00801 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcFakeTests.m; sourceTree = "<group>"; };
 		223BF9B41969E35E00D327B9 /* CourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseTableViewController.h; sourceTree = "<group>"; };
 		223BF9B51969E35E00D327B9 /* CourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTableViewController.m; sourceTree = "<group>"; };
@@ -155,9 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				223BF9B11969D4D700D327B9 /* model */,
+				223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */,
 				221E501A19689CD500F83582 /* ProgramTableViewControllerTests.m */,
 				221E501519689CD500F83582 /* Supporting Files */,
-				223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */,
 			);
 			path = SCISTests;
 			sourceTree = "<group>";
@@ -174,11 +183,14 @@
 		221E50241968ACC000F83582 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				221E50251968ACE800F83582 /* ProgramSvc.h */,
-				221E50261968AD3100F83582 /* ProgramSvcFake.h */,
-				221E50271968AD3100F83582 /* ProgramSvcFake.m */,
+				221E52B51971DBCA00E00801 /* Course.h */,
+				221E52B61971DBCA00E00801 /* Course.m */,
 				221E50291968AE2E00F83582 /* Program.h */,
 				221E502A1968AE2E00F83582 /* Program.m */,
+				221E50251968ACE800F83582 /* ProgramSvc.h */,
+				221E52AF1971A37500E00801 /* ProgramSvcDelegate.h */,
+				221E52B01971D83700E00801 /* ProgramSvcJson.h */,
+				221E52B11971D83700E00801 /* ProgramSvcJson.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -186,7 +198,10 @@
 		223BF9B11969D4D700D327B9 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				221E50261968AD3100F83582 /* ProgramSvcFake.h */,
+				221E50271968AD3100F83582 /* ProgramSvcFake.m */,
 				223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */,
+				221E52B31971D8EA00E00801 /* ProgramSvcJsonTest.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -292,6 +307,8 @@
 				221E502B1968AE2E00F83582 /* Program.m in Sources */,
 				221E4FFD19689CD500F83582 /* AppDelegate.m in Sources */,
 				221E4FF919689CD500F83582 /* main.m in Sources */,
+				221E52B71971DBCA00E00801 /* Course.m in Sources */,
+				221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */,
 				221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */,
 				221E50281968AD3100F83582 /* ProgramSvcFake.m in Sources */,
 			);
@@ -302,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */,
+				221E52B41971D8EA00E00801 /* ProgramSvcJsonTest.m in Sources */,
 				223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */,
 				221E501B19689CD500F83582 /* ProgramTableViewControllerTests.m in Sources */,
 			);

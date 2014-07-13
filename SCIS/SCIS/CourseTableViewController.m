@@ -7,26 +7,48 @@
 //
 
 #import "CourseTableViewController.h"
+#import "Course.h"
+#import "ProgramSvcJson.h"
 
 @interface CourseTableViewController ()
 
 @end
 
-@implementation CourseTableViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@implementation CourseTableViewController {
+    id <ProgramSvc> _service;
+    NSArray *_courses;
 }
+
+- (void) setService:(id <ProgramSvc>) service {
+    _service = service;
+    [_service setDelegate:self];
+    [_service retrieveCoursesForProgramAsync:self.program];
+}
+- (BOOL) areCoursesLoaded {
+    return _courses != nil;
+}
+
+#pragma mark - UIViewController
+
+//- (id)initWithStyle:(UITableViewStyle)style
+//{
+//    NSLog(@"initWithStyle");
+//    self = [super initWithStyle:style];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
-    
+
+    if (_service == nil) {
+        [self setService:[[ProgramSvcJson alloc] init]];
+    }
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -51,7 +73,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.courses.count;
+    return _courses.count;
 }
 
 
@@ -60,8 +82,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSString *course = [self.courses objectAtIndex:indexPath.row];
-    cell.textLabel.text = course;
+    Course *course = [_courses objectAtIndex:indexPath.row];
+    cell.textLabel.text = course.name;
 
     return cell;
 }
@@ -115,5 +137,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - ProgramSvcDelegate
+
+- (void)didFinishRetrievingPrograms:(NSArray *)programs {
+}
+
+- (void)didFinishRetrievingCourses:(NSArray *)courses {
+    _courses = courses;
+    [self.tableView reloadData];
+}
 
 @end

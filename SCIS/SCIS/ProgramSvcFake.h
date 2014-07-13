@@ -12,6 +12,4 @@
 
 @interface ProgramSvcFake : NSObject <ProgramSvc>
 
-- (NSArray *)retrieveAllPrograms;
-
 @end

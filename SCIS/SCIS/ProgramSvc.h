@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 
 #import "Program.h"
+#import "ProgramSvcDelegate.h"
 
 @protocol ProgramSvc <NSObject>
 
-- (NSArray *)retrieveAllPrograms;
-- (NSArray *)retrieveAllCourseForProgramId:(NSInteger) programID;
+- (NSArray *)retrievePrograms;
+- (void) retrieveProgramsAsync;
+
+- (NSArray *)retrieveCoursesForProgram:(Program *) program;
+- (void) retrieveCoursesForProgramAsync:(Program *) program;
+
+- (void) setDelegate:(id <ProgramSvcDelegate>)delegate;
 
 @end

@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgramSvc.h"
 
-@interface ProgramTableViewController : UITableViewController
+@interface ProgramTableViewController : UITableViewController <ProgramSvcDelegate>
 
-/** A method to support unit testing
+/** methods to support unit testing
  */
-- (void)setProgramSvc:(id)programSvc;
+- (void) setService:(id <ProgramSvc>) service;
+- (BOOL) areProgramsLoaded;
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import "ProgramSvcFake.h"
+#import "Course.h"
 
 @implementation ProgramSvcFake {
-    NSArray *programs;
+    NSArray *_programs;
+    id <ProgramSvcDelegate> _delegate;
 }
 
 - (ProgramSvcFake *) init {
@@ -22,24 +24,56 @@
             program.name = name;
             [array addObject: program];
         }
-        programs = [[NSArray alloc] initWithArray:array];
+        _programs = [[NSArray alloc] initWithArray:array];
         return self;
     }
 
     return self;
 }
 
-- (NSArray *)retrieveAllPrograms {
-    return programs;
+- (void) setDelegate:(id <ProgramSvcDelegate>)delegate {
+    _delegate = delegate;
 }
 
-- (NSArray *)retrieveAllCourseForProgramId:(NSInteger)programID {
+- (NSArray *)retrievePrograms {
+    return _programs;
+}
+
+- (void) retrieveProgramsAsync {
+    dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //background processing goes here
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //update UI here
+            [_delegate didFinishRetrievingPrograms:_programs];
+        });
+    });
+};
+
+- (NSArray *)retrieveCoursesForProgram:(Program *)program {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 0; i<10; i++) {
-        NSString *course = [NSString stringWithFormat:@"CRS %03i", i];
+        Course *course = [[Course alloc] init];
+        course.courseID = i;
+        course.name = [NSString stringWithFormat:@"CRS %03i", i];
+        course.program = [[Program alloc] init];
+        course.program = program;
         [array addObject: course];
     }
     return array;
 }
+
+- (void) retrieveCoursesForProgramAsync:(Program *)program  {
+    dispatch_async(dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //background processing goes here
+        NSArray *courses = [self retrieveCoursesForProgram:program];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //update UI here
+            [_delegate didFinishRetrievingCourses:courses];
+        });
+    });
+};
+
 
 @end

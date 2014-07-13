@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Program.h"
+#import "ProgramSvc.h"
 
-@interface CourseTableViewController : UITableViewController
+@interface CourseTableViewController : UITableViewController <ProgramSvcDelegate>
 
-@property (nonatomic, strong) NSArray *courses;
+@property (nonatomic, strong) Program *program;
+
+/** methods to support unit testing
+ */
+- (void) setService:(id <ProgramSvc>) service;
+- (BOOL) areCoursesLoaded;
 
 @end
