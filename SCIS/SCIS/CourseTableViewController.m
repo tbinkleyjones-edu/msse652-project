@@ -8,7 +8,7 @@
 
 #import "CourseTableViewController.h"
 #import "Course.h"
-#import "ProgramSvcJson.h"
+#import "ProgramSvcJsonAF.h"
 
 @interface CourseTableViewController ()
 
@@ -46,7 +46,7 @@
     [super viewDidLoad];
 
     if (_service == nil) {
-        [self setService:[[ProgramSvcJson alloc] init]];
+        [self setService:[[ProgramSvcJsonAF alloc] init]];
     }
 
     // Uncomment the following line to preserve selection between presentations.

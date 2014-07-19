@@ -24,11 +24,14 @@
 		221E502B1968AE2E00F83582 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E502A1968AE2E00F83582 /* Program.m */; };
 		221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E502D1968AF4300F83582 /* ProgramTableViewController.m */; };
 		221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B11971D83700E00801 /* ProgramSvcJson.m */; };
-		221E52B41971D8EA00E00801 /* ProgramSvcJsonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B31971D8EA00E00801 /* ProgramSvcJsonTest.m */; };
 		221E52B71971DBCA00E00801 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B61971DBCA00E00801 /* Course.m */; };
 		223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */; };
 		223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B51969E35E00D327B9 /* CourseTableViewController.m */; };
 		223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */; };
+		227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C8434197AE9AE006B4DB9 /* ProgramSvcJsonAF.m */; };
+		227C843A197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C8439197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m */; };
+		227C843C197AEBF5006B4DB9 /* ProgramSvcJsonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C843B197AEBF5006B4DB9 /* ProgramSvcJsonTests.m */; };
+		CE80C4F131B64A6285AECF95 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BD57BC2C94449A9E0F492E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,13 +72,18 @@
 		221E52AF1971A37500E00801 /* ProgramSvcDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramSvcDelegate.h; sourceTree = "<group>"; };
 		221E52B01971D83700E00801 /* ProgramSvcJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramSvcJson.h; sourceTree = "<group>"; };
 		221E52B11971D83700E00801 /* ProgramSvcJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJson.m; sourceTree = "<group>"; };
-		221E52B31971D8EA00E00801 /* ProgramSvcJsonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonTest.m; sourceTree = "<group>"; };
 		221E52B51971DBCA00E00801 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		221E52B61971DBCA00E00801 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcFakeTests.m; sourceTree = "<group>"; };
 		223BF9B41969E35E00D327B9 /* CourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseTableViewController.h; sourceTree = "<group>"; };
 		223BF9B51969E35E00D327B9 /* CourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTableViewController.m; sourceTree = "<group>"; };
 		223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTableViewControllerTests.m; sourceTree = "<group>"; };
+		227C8433197AE9AE006B4DB9 /* ProgramSvcJsonAF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramSvcJsonAF.h; sourceTree = "<group>"; };
+		227C8434197AE9AE006B4DB9 /* ProgramSvcJsonAF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonAF.m; sourceTree = "<group>"; };
+		227C8439197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonAFTests.m; sourceTree = "<group>"; };
+		227C843B197AEBF5006B4DB9 /* ProgramSvcJsonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonTests.m; sourceTree = "<group>"; };
+		4DF03F302D4C45ACBEFA652F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F5BD57BC2C94449A9E0F492E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 				221E4FEF19689CD500F83582 /* CoreGraphics.framework in Frameworks */,
 				221E4FF119689CD500F83582 /* UIKit.framework in Frameworks */,
 				221E4FED19689CD500F83582 /* Foundation.framework in Frameworks */,
+				CE80C4F131B64A6285AECF95 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +118,7 @@
 				221E501419689CD500F83582 /* SCISTests */,
 				221E4FEB19689CD500F83582 /* Frameworks */,
 				221E4FEA19689CD500F83582 /* Products */,
+				4DF03F302D4C45ACBEFA652F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +138,7 @@
 				221E4FEE19689CD500F83582 /* CoreGraphics.framework */,
 				221E4FF019689CD500F83582 /* UIKit.framework */,
 				221E500E19689CD500F83582 /* XCTest.framework */,
+				F5BD57BC2C94449A9E0F492E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,6 +202,8 @@
 				221E52AF1971A37500E00801 /* ProgramSvcDelegate.h */,
 				221E52B01971D83700E00801 /* ProgramSvcJson.h */,
 				221E52B11971D83700E00801 /* ProgramSvcJson.m */,
+				227C8433197AE9AE006B4DB9 /* ProgramSvcJsonAF.h */,
+				227C8434197AE9AE006B4DB9 /* ProgramSvcJsonAF.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -201,7 +214,8 @@
 				221E50261968AD3100F83582 /* ProgramSvcFake.h */,
 				221E50271968AD3100F83582 /* ProgramSvcFake.m */,
 				223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */,
-				221E52B31971D8EA00E00801 /* ProgramSvcJsonTest.m */,
+				227C843B197AEBF5006B4DB9 /* ProgramSvcJsonTests.m */,
+				227C8439197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -213,9 +227,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 221E501E19689CD500F83582 /* Build configuration list for PBXNativeTarget "SCIS" */;
 			buildPhases = (
+				A28C49A84DFF4D0E941D0DAE /* Check Pods Manifest.lock */,
 				221E4FE519689CD500F83582 /* Sources */,
 				221E4FE619689CD500F83582 /* Frameworks */,
 				221E4FE719689CD500F83582 /* Resources */,
+				4B05408D1624471BA9D8176D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,6 +314,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B05408D1624471BA9D8176D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A28C49A84DFF4D0E941D0DAE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		221E4FE519689CD500F83582 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -305,6 +354,7 @@
 			files = (
 				223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */,
 				221E502B1968AE2E00F83582 /* Program.m in Sources */,
+				227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */,
 				221E4FFD19689CD500F83582 /* AppDelegate.m in Sources */,
 				221E4FF919689CD500F83582 /* main.m in Sources */,
 				221E52B71971DBCA00E00801 /* Course.m in Sources */,
@@ -318,10 +368,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227C843A197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m in Sources */,
 				223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */,
-				221E52B41971D8EA00E00801 /* ProgramSvcJsonTest.m in Sources */,
 				223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */,
 				221E501B19689CD500F83582 /* ProgramTableViewControllerTests.m in Sources */,
+				227C843C197AEBF5006B4DB9 /* ProgramSvcJsonTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +486,7 @@
 		};
 		221E501F19689CD500F83582 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF03F302D4C45ACBEFA652F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -448,6 +500,7 @@
 		};
 		221E502019689CD500F83582 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DF03F302D4C45ACBEFA652F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

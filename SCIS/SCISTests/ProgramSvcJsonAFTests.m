@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ProgramSvcJson.h"
+#import "ProgramSvcJsonAF.h"
 
-@interface ProgramSvcJsonTest : XCTestCase <ProgramSvcDelegate>
+@interface ProgramSvcJsonAFTests : XCTestCase <ProgramSvcDelegate>
 
 @end
 
-@implementation ProgramSvcJsonTest {
+@implementation ProgramSvcJsonAFTests {
     NSArray *_programs;
     NSArray *_courses;
 }
@@ -21,32 +21,38 @@
 #pragma mark - ProgramSvcDelegate
 
 - (void)didFinishRetrievingPrograms:(NSArray *)programs {
+    if (programs == nil) {
+        programs = [[NSArray alloc] init];
+    }
     _programs = programs;
 }
 
 - (void)didFinishRetrievingCourses:(NSArray *)courses {
+    if (courses == nil) {
+        courses = [[NSArray alloc] init];
+    }
     _courses = courses;
 }
 
 #pragma mark - Tests
 
-- (void)testProgramSvcJson
-{
-    id <ProgramSvc> service = [[ProgramSvcJson alloc] init];
-    NSArray *programs = [service retrievePrograms];
-    XCTAssert(programs.count > 0, @"Unexpected empty list");
-
-    Program *program = [programs objectAtIndex:0];
-    NSArray *courses = [service retrieveCoursesForProgram:program];
-    XCTAssert(courses.count > 0, @"Unexpected empty list");
-}
+//- (void)testProgramSvcJson
+//{
+//    id <ProgramSvc> service = [[ProgramSvcJsonAF alloc] init];
+//    NSArray *programs = [service retrievePrograms];
+//    XCTAssert(programs.count > 0, @"Unexpected empty list");
+//
+//    Program *program = [programs objectAtIndex:0];
+//    NSArray *courses = [service retrieveCoursesForProgram:program];
+//    XCTAssert(courses.count > 0, @"Unexpected empty list");
+//}
 
 - (void)testProgramSvcJsonAsync {
 
     _programs = nil;
     _courses = nil;
 
-    id <ProgramSvc> service = [[ProgramSvcJson alloc] init];
+    id <ProgramSvc> service = [[ProgramSvcJsonAF alloc] init];
     [service setDelegate:self];
     [service retrieveProgramsAsync];
 

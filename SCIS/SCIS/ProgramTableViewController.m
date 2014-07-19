@@ -8,7 +8,7 @@
 
 #import "ProgramTableViewController.h"
 #import "ProgramSvc.h"
-#import "ProgramSvcJson.h"
+#import "ProgramSvcJsonAF.h"
 #import "CourseTableViewController.h"
 
 @interface ProgramTableViewController ()
@@ -55,7 +55,7 @@
     NSLog(@"viewDidLoad");
 
     if (_service == nil) {
-        [self setService:[[ProgramSvcJson alloc] init]];
+        [self setService:[[ProgramSvcJsonAF alloc] init]];
     }
 
     // Uncomment the following line to preserve selection between presentations.
@@ -103,7 +103,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Program *program = [[_service retrievePrograms] objectAtIndex:indexPath.row];
+    Program *program = [_programs objectAtIndex:indexPath.row];
     cell.textLabel.text = program.name;
     
     return cell;
