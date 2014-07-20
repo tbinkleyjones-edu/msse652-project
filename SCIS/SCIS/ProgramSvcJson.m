@@ -89,7 +89,6 @@
     _delegate = delegate;
 }
 
-
 - (void) retrieveProgramsAsync {
     NSURL *url = [NSURL URLWithString:@"http://regisscis.net/Regis2/webresources/regis2.program"];
 
@@ -145,6 +144,7 @@
         
     return results;
 }
+
 - (void) retrieveCoursesForProgramAsync:(Program *) program {
     NSURL *url = [NSURL URLWithString:@"http://regisscis.net/Regis2/webresources/regis2.course"];
 

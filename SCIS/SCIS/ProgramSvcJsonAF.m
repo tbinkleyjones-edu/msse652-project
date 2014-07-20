@@ -10,10 +10,20 @@
 #import "AFNetworking.h"
 #import "Course.h"
 
+/**
+ A ProgramSvc implementation that makes use of AFNetworking components - specifically
+ AFHTTPRequestOperation and AFJSONResponseSerializer. The synchronous ProgramSvc
+ methods are not implemented.
+ */
 @implementation ProgramSvcJsonAF {
     id _delegate;
 }
 
+/**
+ A private method used to build Progam objects from the JSON document
+ returned by the Regis web service. The data parameter is the
+ responseObject passed to the AFHTTPRequestOperation completion block.
+ */
 - (NSMutableArray *)parseProgramData:(id)data {
     NSArray *array = data;
 
@@ -38,6 +48,11 @@
     return result;
 }
 
+/**
+ A private method used to build Course objects from the JSON document
+ returned by the Regis web service. The data parameter is the
+ responseObject passed to the AFHTTPRequestOperation completion block.
+ */
 - (NSMutableArray *)parseCourseData:(id)data {
     NSArray *array = data;
 
@@ -75,7 +90,6 @@
     }
     return result;
 }
-
 
 #pragma mark - ProgramSvc
 

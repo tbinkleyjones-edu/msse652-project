@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ProgramSvc.h"
 
+/**
+ The table view controller for the Program View Controller in Main.storyboard
+ */
 @interface ProgramTableViewController : UITableViewController <ProgramSvcDelegate>
 
 /** methods to support unit testing
