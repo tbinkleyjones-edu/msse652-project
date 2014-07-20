@@ -103,8 +103,8 @@
 }
 
 - (void) retrieveProgramsAsync {
-    NSURL *url = [[NSURL alloc] initWithString: @"http://localhost:8080/regis2.program"];
-    //NSURL *url = [[NSURL alloc] initWithString: @"http://regisscis.net/Regis2/webresources/regis2.program"];
+    //NSURL *url = [[NSURL alloc] initWithString: @"http://localhost:8080/regis2.program"];
+    NSURL *url = [[NSURL alloc] initWithString: @"http://regisscis.net/Regis2/webresources/regis2.program"];
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
@@ -131,8 +131,8 @@
 }
 
 - (void) retrieveCoursesForProgramAsync:(Program *) program {
-    NSURL *url = [[NSURL alloc] initWithString: @"http://localhost:8080/regis2.course"];
-    //NSURL *url = [[NSURL alloc] initWithString: @"http://regisscis.net/Regis2/webresources/regis2.course"];
+    //NSURL *url = [[NSURL alloc] initWithString: @"http://localhost:8080/regis2.course"];
+    NSURL *url = [[NSURL alloc] initWithString: @"http://regisscis.net/Regis2/webresources/regis2.course"];
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"GET"];
