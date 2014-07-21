@@ -87,13 +87,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Only one section
+    // Only one section containing all programs
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of programs.
+    // Return the number of programs in the _programs array.
     return _programs.count;
 }
 
@@ -102,8 +102,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    Program *program = [[_service retrievePrograms] objectAtIndex:indexPath.row];
+    // The cell is configured in Main.storyboard with the Basic style, so only
+    // the primary text label is used.
+    Program *program = [_programs objectAtIndex:indexPath.row];
     cell.textLabel.text = program.name;
     
     return cell;
@@ -158,6 +159,9 @@
     // Pass the selected object to the new view controller.
 
     if ([[segue identifier] isEqualToString:@"FromProgramToCourse"]) {
+        // This is a segue to the Corse View Controller defined in Main.storyboard,
+        // and is invoked by tapping a program in the list. The Course view
+        // requires the program object that was seleceted by the user.
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Program *program = [_programs objectAtIndex:indexPath.row];
         [[segue destinationViewController] setProgram:program];
@@ -173,7 +177,7 @@
 }
 
 - (void)didFinishRetrievingCourses:(NSArray *)courses {
-
+    // not used by the program view controller.
 }
 
 @end

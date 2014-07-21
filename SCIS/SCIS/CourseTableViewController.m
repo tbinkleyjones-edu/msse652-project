@@ -81,9 +81,13 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    // The cell is configured in Main.storyboard with the Subtitle style, so
+    // both the primary text and detail text labels are used.
     Course *course = [_courses objectAtIndex:indexPath.row];
-    cell.textLabel.text = course.name;
+
+    // TODO: split the course name into "course number" and "course name"
+    cell.textLabel.text = course.name; // i.e. "CIS 206"
+    cell.detailTextLabel.text = @"couse name"; // i.e. "Business Software Applications"
 
     return cell;
 }
@@ -141,6 +145,7 @@
 #pragma mark - ProgramSvcDelegate
 
 - (void)didFinishRetrievingPrograms:(NSArray *)programs {
+    // not used by course view controller
 }
 
 - (void)didFinishRetrievingCourses:(NSArray *)courses {

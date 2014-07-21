@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ ProgramSvcDelegate protocol defines methods called by ProgramSvc implementations
+ when asynchronous operations are complete.
+ */
 @protocol ProgramSvcDelegate <NSObject>
 
 - (void)didFinishRetrievingPrograms:(NSArray *)programs;

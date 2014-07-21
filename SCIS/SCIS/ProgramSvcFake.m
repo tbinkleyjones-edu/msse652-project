@@ -55,7 +55,7 @@
     for (int i = 0; i<10; i++) {
         Course *course = [[Course alloc] init];
         course.courseID = i;
-        course.name = [NSString stringWithFormat:@"CRS %03i", i];
+        course.name = [NSString stringWithFormat:@"SCIS %03i A Regis Course", i];
         course.program = [[Program alloc] init];
         course.program = program;
         [array addObject: course];

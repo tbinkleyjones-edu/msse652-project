@@ -10,6 +10,9 @@
 #import "Program.h"
 #import "ProgramSvc.h"
 
+/**
+ The table view controller for the Course View Controller in Main.storyboard
+ */
 @interface CourseTableViewController : UITableViewController <ProgramSvcDelegate>
 
 @property (nonatomic, strong) Program *program;
