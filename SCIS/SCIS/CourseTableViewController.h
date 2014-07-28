@@ -8,18 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Program.h"
-#import "ProgramSvc.h"
 
 /**
  The table view controller for the Course View Controller in Main.storyboard
  */
-@interface CourseTableViewController : UITableViewController <ProgramSvcDelegate>
+@interface CourseTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) Program *program;
-
-/** methods to support unit testing
- */
-- (void) setService:(id <ProgramSvc>) service;
-- (BOOL) areCoursesLoaded;
 
 @end

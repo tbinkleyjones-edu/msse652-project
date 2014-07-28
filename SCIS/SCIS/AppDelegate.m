@@ -7,12 +7,76 @@
 //
 
 #import "AppDelegate.h"
+#import "Program.h"
+#import "course.h"
+#import "RestKit.h"
 
 @implementation AppDelegate
+
+- (void)initializeRestKit {
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelDebug);
+
+    //NSURL *url = [[NSURL alloc] initWithString: @"http://localhost:8080"]; // /regis2.course
+    NSURL *url = [[NSURL alloc] initWithString: @"http://regisscis.net"];
+
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL: url];
+    [RKObjectManager setSharedManager:objectManager];
+
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    objectManager.managedObjectStore = managedObjectStore;
+
+    // setup mapping to the core data entites for program and course
+    RKEntityMapping *programMapping = [RKEntityMapping mappingForEntityForName: NSStringFromClass([Program class])
+                                                          inManagedObjectStore:managedObjectStore];
+    programMapping.identificationAttributes = @[@"id"];
+    [programMapping addAttributeMappingsFromDictionary:@{@"id" : @"id", @"name" : @"name"}];
+
+    RKEntityMapping *courseMapping = [RKEntityMapping mappingForEntityForName: NSStringFromClass([Course class])
+                                                          inManagedObjectStore:managedObjectStore];
+    courseMapping.identificationAttributes = @[@"id"];
+    [courseMapping addAttributeMappingsFromDictionary:@{@"id" : @"id", @"name" : @"name"}];
+
+    // Define the relationship mapping
+    [courseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"pid"
+                                                                                   toKeyPath:@"pid"
+                                                                                 withMapping:programMapping]];
+\
+    // register the entity mappings
+    RKResponseDescriptor *programDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:programMapping
+                                                                                           method:RKRequestMethodGET
+                                                                                      pathPattern:@"/Regis2/webresources/regis2.program"
+                                                                                          keyPath:nil
+                                                                                      statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:programDescriptor];
+
+    RKResponseDescriptor *courseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:courseMapping
+                                                                                          method:RKRequestMethodGET
+                                                                                     pathPattern:@"/Regis2/webresources/regis2.course"
+                                                                                         keyPath:nil
+                                                                                     statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:courseDescriptor];
+
+    // setup the core data object contexts
+    [managedObjectStore createPersistentStoreCoordinator];
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"SCIS.sqlite"];
+    NSLog(@"%@", storePath);
+    NSError *error;
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error];
+    NSAssert(persistentStore, @"Failed persistent store: %@", error);
+
+    [managedObjectStore createManagedObjectContexts];
+
+    [RKManagedObjectStore setDefaultStore:managedObjectStore];
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc]initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self initializeRestKit];
     return YES;
 }
 							

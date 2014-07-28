@@ -8,25 +8,42 @@
 
 #import "CourseTableViewController.h"
 #import "Course.h"
-#import "ProgramSvcJson.h"
+#import "RestKit.h"
 
 @interface CourseTableViewController ()
 
 @end
 
 @implementation CourseTableViewController {
-    id <ProgramSvc> _service;
     NSArray *_courses;
+    NSFetchedResultsController *_fetchedResultsController;
 }
 
-- (void) setService:(id <ProgramSvc>) service {
-    _service = service;
-    [_service setDelegate:self];
-    [_service retrieveCoursesForProgramAsync:self.program];
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (!_fetchedResultsController) {
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Course class])];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+
+        _fetchedResultsController.delegate = self;
+
+        NSError *error;
+        BOOL fetchSuccessful = [_fetchedResultsController performFetch:&error];
+        NSLog(@"%@", [_fetchedResultsController fetchedObjects]);
+        NSAssert(!error, @"Error performing fetch request: %@", error);
+
+        //NSAssert([[self.fetchedResultsController fetchedObjects] count], @"Seeding didn't work...");
+        if (! fetchSuccessful) {
+            NSLog(@"fetch didn't work");
+        }
+    }
+    return _fetchedResultsController;
 }
-- (BOOL) areCoursesLoaded {
-    return _courses != nil;
-}
+
 
 #pragma mark - UIViewController
 
@@ -45,15 +62,36 @@
     NSLog(@"viewDidLoad");
     [super viewDidLoad];
 
-    if (_service == nil) {
-        [self setService:[[ProgramSvcJson alloc] init]];
-    }
+    _fetchedResultsController = [self fetchedResultsController];
+    [self loadData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) loadData {
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/Regis2/webresources/regis2.course" parameters:nil
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+
+                                                  NSArray *fetchedObjects = [_fetchedResultsController fetchedObjects];
+                                                  NSMutableArray *results = [[NSMutableArray alloc] init];
+                                                  for (int i=0; i<fetchedObjects.count; i++) {
+                                                      Course *course = [fetchedObjects objectAtIndex:i];
+                                                      if (course.pid.id == self.program.id) {
+                                                          [results addObject:course];
+                                                      }
+                                                  }
+                                                  _courses = results;
+                                                  RKLogInfo(@"Load complete: Table should refresh...");
+                                                  NSLog(@"%@", _courses);
+                                                  [self.tableView reloadData];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  RKLogInfo(@"Load failure...");
+                                              }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,14 +180,10 @@
 }
 */
 
-#pragma mark - ProgramSvcDelegate
+#pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)didFinishRetrievingPrograms:(NSArray *)programs {
-    // not used by course view controller
-}
-
-- (void)didFinishRetrievingCourses:(NSArray *)courses {
-    _courses = courses;
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"content changed");
     [self.tableView reloadData];
 }
 

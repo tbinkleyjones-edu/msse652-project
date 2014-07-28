@@ -7,28 +7,42 @@
 //
 
 #import "ProgramTableViewController.h"
-#import "ProgramSvc.h"
-#import "ProgramSvcJson.h"
 #import "CourseTableViewController.h"
+#import "Program.h"
+#import "RestKit.h"
 
 @interface ProgramTableViewController ()
 
 @end
 
 @implementation ProgramTableViewController {
-    id <ProgramSvc> _service;
-    NSArray *_programs;
+    NSFetchedResultsController *_fetchedResultsController;
 }
 
-- (void) setService:(id <ProgramSvc>) service {
-    _service = service;
-    [_service setDelegate:self];
-    [_service retrieveProgramsAsync];
-}
-- (BOOL) areProgramsLoaded {
-    return _programs != nil;
-}
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (!_fetchedResultsController) {
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Program class])];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
 
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+
+        _fetchedResultsController.delegate = self;
+
+        NSError *error;
+        BOOL fetchSuccessful = [_fetchedResultsController performFetch:&error];
+        NSLog(@"%@", [_fetchedResultsController fetchedObjects]);
+        NSAssert(!error, @"Error performing fetch request: %@", error);
+
+        //NSAssert([[self.fetchedResultsController fetchedObjects] count], @"Seeding didn't work...");
+        if (! fetchSuccessful) {
+            NSLog(@"fetch didn't work");
+        }
+    }
+    return _fetchedResultsController;
+}
 
 #pragma mark - UIViewController
 
@@ -54,15 +68,26 @@
     [super viewDidLoad];
     NSLog(@"viewDidLoad");
 
-    if (_service == nil) {
-        [self setService:[[ProgramSvcJson alloc] init]];
-    }
+    _fetchedResultsController = [self fetchedResultsController];
+    [self loadData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) loadData {
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/Regis2/webresources/regis2.program" parameters:nil
+    success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        RKLogInfo(@"Load complete: Table should refresh...");
+        NSLog(@"%@", [_fetchedResultsController fetchedObjects]);
+        [self.tableView reloadData];
+    }
+    failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        RKLogInfo(@"Load failure...");
+    }];
 }
 
 //- (void)viewWillAppear:(BOOL)animated
@@ -94,7 +119,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of programs in the _programs array.
-    return _programs.count;
+    id<NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController.sections objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 
@@ -104,7 +130,7 @@
     
     // The cell is configured in Main.storyboard with the Basic style, so only
     // the primary text label is used.
-    Program *program = [_programs objectAtIndex:indexPath.row];
+    Program *program = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = program.name;
     
     return cell;
@@ -163,21 +189,16 @@
         // and is invoked by tapping a program in the list. The Course view
         // requires the program object that was seleceted by the user.
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Program *program = [_programs objectAtIndex:indexPath.row];
+        Program *program = [_fetchedResultsController objectAtIndexPath:indexPath];
         [[segue destinationViewController] setProgram:program];
     }
 }
 
-#pragma mark - ProgramSvcDelegate
+#pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)didFinishRetrievingPrograms:(NSArray *)programs {
-    _programs = programs;
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"content changed");
     [self.tableView reloadData];
-    NSLog(@"programs loaded");
-}
-
-- (void)didFinishRetrievingCourses:(NSArray *)courses {
-    // not used by the program view controller.
 }
 
 @end

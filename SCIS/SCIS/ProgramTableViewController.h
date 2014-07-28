@@ -7,16 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProgramSvc.h"
+#import "RestKit.h"
 
 /**
  The table view controller for the Program View Controller in Main.storyboard
  */
-@interface ProgramTableViewController : UITableViewController <ProgramSvcDelegate>
+@interface ProgramTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-/** methods to support unit testing
- */
-- (void) setService:(id <ProgramSvc>) service;
-- (BOOL) areProgramsLoaded;
 
 @end

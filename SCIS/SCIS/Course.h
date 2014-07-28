@@ -2,17 +2,19 @@
 //  Course.h
 //  SCIS
 //
-//  Created by Tim Binkley-Jones on 7/12/14.
+//  Created by Tim Binkley-Jones on 7/27/14.
 //  Copyright (c) 2014 msse652. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Program.h"
+#import <CoreData/CoreData.h>
 
-@interface Course : NSObject
+@class Program;
 
-@property (nonatomic) NSInteger courseID;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) Program *program;
+@interface Course : NSManagedObject
+
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) Program *pid;
 
 @end
