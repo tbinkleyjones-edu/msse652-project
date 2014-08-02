@@ -87,18 +87,18 @@
                     <toolbarItems>
                         <barButtonItem title="Share" id="IcV-bJ-UQK">
                             <connections>
-                                <action selector="shareTapped:" destination="gqD-6p-05B" id="d9U-VU-Vx2"/>
+                                <action selector="shareTapped:" destination="gqD-6p-05B" id="X5w-yC-AQX"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Zzp-0O-RbS"/>
                         <barButtonItem title="Facebook" id="9T0-mp-xvG">
                             <connections>
-                                <action selector="facebookTapped:" destination="gqD-6p-05B" id="5ne-KS-MJI"/>
+                                <action selector="facebookTapped:" destination="gqD-6p-05B" id="JfK-fq-OnZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem title="Twitter" id="MYm-l8-ybR">
                             <connections>
-                                <action selector="twitterTapped:" destination="gqD-6p-05B" id="wCI-PK-qWv"/>
+                                <action selector="twitterTapped:" destination="gqD-6p-05B" id="Y8M-6p-sdi"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -108,6 +108,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cue-fB-HoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1719" y="-504"/>
+        </scene>
+        <!--Twitter View Controller-->
+        <scene sceneID="C6a-n1-fqx">
+            <objects>
+                <tableViewController title="Twitter" id="rFI-42-Tqy" userLabel="Twitter View Controller" customClass="TwitterTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jI4-nf-X7M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" textLabel="Qbn-pM-Blh" detailTextLabel="vfx-Af-4gA" style="IBUITableViewCellStyleSubtitle" id="h1X-mS-BMr">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h1X-mS-BMr" id="gjz-sV-r3c">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="28" id="Qbn-pM-Blh">
+                                            <rect key="frame" x="15" y="6" width="28" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vfx-Af-4gA">
+                                            <rect key="frame" x="15" y="23" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rFI-42-Tqy" id="sDn-Wu-vF7"/>
+                            <outlet property="delegate" destination="rFI-42-Tqy" id="dgK-Df-3Hp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Twitter" id="Dw2-94-l79"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdC-Oc-Qlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2193" y="-95"/>
         </scene>
         <!--Program Navigation Controller-->
         <scene sceneID="adc-fA-POe">
@@ -189,6 +234,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rFI-42-Tqy" kind="push" identifier="FromSocialToTwitter" id="dqP-jd-jDA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vCr-zo-PDr" style="IBUITableViewCellStyleDefault" id="CwA-eY-wEX">
                                         <rect key="frame" x="0.0" y="152" width="320" height="44"/>
@@ -207,7 +255,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="SQe-Jp-lfB" kind="push" id="aue-KI-E5q"/>
+                                            <segue destination="SQe-Jp-lfB" kind="push" identifier="FromSocialToChat" id="aue-KI-E5q"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -267,7 +315,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2u-3V-8w2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="180"/>
+            <point key="canvasLocation" x="2201" y="562"/>
         </scene>
         <!--Cloud View Controller-->
         <scene sceneID="q6M-Mk-fe2">

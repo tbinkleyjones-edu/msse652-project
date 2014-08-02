@@ -29,6 +29,7 @@
 		2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */; };
 		2239DF0B198D752E00184AEE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2239DF0A198D752E00184AEE /* Social.framework */; };
 		2239DF0D198D7CD100184AEE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2239DF0C198D7CD100184AEE /* Accounts.framework */; };
+		2239DF10198D988C00184AEE /* TwitterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DF0F198D988C00184AEE /* TwitterTableViewController.m */; };
 		223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */; };
 		223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B51969E35E00D327B9 /* CourseTableViewController.m */; };
 		223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */; };
@@ -84,6 +85,8 @@
 		2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialMediaStatus.m; sourceTree = "<group>"; };
 		2239DF0A198D752E00184AEE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		2239DF0C198D7CD100184AEE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		2239DF0E198D988C00184AEE /* TwitterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterTableViewController.h; sourceTree = "<group>"; };
+		2239DF0F198D988C00184AEE /* TwitterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterTableViewController.m; sourceTree = "<group>"; };
 		223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcFakeTests.m; sourceTree = "<group>"; };
 		223BF9B41969E35E00D327B9 /* CourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseTableViewController.h; sourceTree = "<group>"; };
 		223BF9B51969E35E00D327B9 /* CourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTableViewController.m; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				221E502D1968AF4300F83582 /* ProgramTableViewController.m */,
 				223BF9B41969E35E00D327B9 /* CourseTableViewController.h */,
 				223BF9B51969E35E00D327B9 /* CourseTableViewController.m */,
+				2239DF0E198D988C00184AEE /* TwitterTableViewController.h */,
+				2239DF0F198D988C00184AEE /* TwitterTableViewController.m */,
 			);
 			path = SCIS;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */,
+				2239DF10198D988C00184AEE /* TwitterTableViewController.m in Sources */,
 				221E502B1968AE2E00F83582 /* Program.m in Sources */,
 				227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */,
 				2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */,

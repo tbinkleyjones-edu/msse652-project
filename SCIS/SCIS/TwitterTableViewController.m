@@ -1,80 +1,48 @@
 //
-//  CourseTableViewController.m
+//  TwitterTableViewController.m
 //  SCIS
 //
-//  Created by Tim Binkley-Jones on 7/6/14.
+//  Created by Tim Binkley-Jones on 8/2/14.
 //  Copyright (c) 2014 msse652. All rights reserved.
 //
 
-#import "CourseTableViewController.h"
-#import "Course.h"
-#import "ProgramSvcJsonAF.h"
+#import "TwitterTableViewController.h"
 #import "SocialMediaSvc.h"
+#import "SocialMediaStatus.h"
 
-@interface CourseTableViewController ()
+@interface TwitterTableViewController ()
 
 @end
 
-@implementation CourseTableViewController {
-    id <ProgramSvc> _service;
-    NSArray *_courses;
+@implementation TwitterTableViewController {
+    NSArray* _tweets;
 }
 
-- (void) setService:(id <ProgramSvc>) service {
-    _service = service;
-    [_service setDelegate:self];
-    [_service retrieveCoursesForProgramAsync:self.program];
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
-- (BOOL) areCoursesLoaded {
-    return _courses != nil;
-}
-
-#pragma mark - Social Media Actions
-
-- (IBAction)shareTapped:(id)sender {
-    NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the Regis University %@ Program", self.program.name];
-    NSURL *url = [NSURL URLWithString:@"http://regis.edu"];
-    [SocialMediaSvc shareMessage:message andUrl:url fromViewController:self];
-}
-
-- (IBAction)facebookTapped:(id)sender {
-    NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the Regis University %@ Program", self.program.name];
-    NSURL *url = [NSURL URLWithString:@"http://regis.edu"];
-    [SocialMediaSvc updateFacebookWithMessage:message andUrl:url fromViewController:self];
-}
-
-- (IBAction)twitterTapped:(id)sender {
-    NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the @regisunivcps %@ Program", self.program.name];
-    NSURL *url = [NSURL URLWithString:@"http://regis.edu"];
-    [SocialMediaSvc tweetMessage:message andUrl:url fromViewController:self];
-}
-
-#pragma mark - UIViewController
-
-//- (id)initWithStyle:(UITableViewStyle)style
-//{
-//    NSLog(@"initWithStyle");
-//    self = [super initWithStyle:style];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad
 {
-    NSLog(@"viewDidLoad");
     [super viewDidLoad];
-
-    if (_service == nil) {
-        [self setService:[[ProgramSvcJsonAF alloc] init]];
-    }
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    NSString *query = @"%23thisisregis%20OR%20%40RegisUniversity%20OR%20%40regisunivcps";
+    [SocialMediaSvc fetchTweetsUsingQuery: query completion:^(NSArray *tweets) {
+        NSLog(@"fetch returned %d tweets", tweets.count);
+        _tweets = tweets;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,42 +51,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController setToolbarHidden:NO animated:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.navigationController setToolbarHidden:YES animated:YES];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Only one section
+    NSLog(@"numberOfSectionsInTableView");
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"numberOfRowsInSection: %i", _tweets.count);
     // Return the number of rows in the section.
-    return _courses.count;
+    return _tweets.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return 100.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseCell" forIndexPath:indexPath];
+    NSLog(@"cellForRowAtIndexPath");
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
+
     // The cell is configured in Main.storyboard with the Subtitle style, so
     // both the primary text and detail text labels are used.
-    Course *course = [_courses objectAtIndex:indexPath.row];
+    SocialMediaStatus *status = [_tweets objectAtIndex:indexPath.row];
 
-    // TODO: split the course name into "course number" and "course name"
-    cell.textLabel.text = course.name; // i.e. "CIS 206"
-    cell.detailTextLabel.text = @"couse name"; // i.e. "Business Software Applications"
-
+    cell.textLabel.text = status.text;
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"- %@", status.name];
     return cell;
 }
 
@@ -171,16 +136,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - ProgramSvcDelegate
-
-- (void)didFinishRetrievingPrograms:(NSArray *)programs {
-    // not used by course view controller
-}
-
-- (void)didFinishRetrievingCourses:(NSArray *)courses {
-    _courses = courses;
-    [self.tableView reloadData];
-}
 
 @end

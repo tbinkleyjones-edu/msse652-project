@@ -39,7 +39,6 @@
     }
 }
 
-//@"%23thisisregis%20OR%20%40RegisUniversity%20OR%20%40regisunivcps"
 + (void) fetchTweetsUsingQuery:(NSString *) query completion:(void(^)(NSArray *))completion {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
 
@@ -48,6 +47,7 @@
         ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
         [accountStore requestAccessToAccountsWithType:twitterAccountType options:NULL completion:^(BOOL granted, NSError *error) {
             if (granted) {
+                NSLog(@"Sending request");
                 //  Step 2:  Create a request
                 NSArray *twitterAccounts =
                 [accountStore accountsWithAccountType:twitterAccountType];
@@ -76,18 +76,20 @@
                         }
                     }
                     // complete with results
-                    completion(results);
+                    [SocialMediaSvc completeOnUIThread:results completion:completion];
                 }];
             } else {
                 // Access was not granted to the twitter account, or an error occurred
                 NSLog(@"%@", [error localizedDescription]);
                 // complete with nil;
-                completion(nil);
+                [SocialMediaSvc completeOnUIThread:nil completion:completion];
             }
         }];
     } else {
+        NSLog(@"Twitter is not available");
+
         // complete immediately with nil;
-        completion(nil);
+        [SocialMediaSvc completeOnUIThread:nil completion:completion];
     }
 }
 
@@ -111,6 +113,12 @@
         NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
     }
     return results;
+}
+
++ (void)completeOnUIThread:(NSArray *)results completion:(void(^)(NSArray *))completion {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        completion(results);
+    });
 }
 
 @end
