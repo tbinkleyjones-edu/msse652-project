@@ -25,6 +25,10 @@
 		221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E502D1968AF4300F83582 /* ProgramTableViewController.m */; };
 		221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B11971D83700E00801 /* ProgramSvcJson.m */; };
 		221E52B71971DBCA00E00801 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B61971DBCA00E00801 /* Course.m */; };
+		2239DE82198D6A7B00184AEE /* SocialMediaSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */; };
+		2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */; };
+		2239DF0B198D752E00184AEE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2239DF0A198D752E00184AEE /* Social.framework */; };
+		2239DF0D198D7CD100184AEE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2239DF0C198D7CD100184AEE /* Accounts.framework */; };
 		223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */; };
 		223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B51969E35E00D327B9 /* CourseTableViewController.m */; };
 		223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BF9B71969EDAA00D327B9 /* CourseTableViewControllerTests.m */; };
@@ -74,6 +78,12 @@
 		221E52B11971D83700E00801 /* ProgramSvcJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJson.m; sourceTree = "<group>"; };
 		221E52B51971DBCA00E00801 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		221E52B61971DBCA00E00801 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		2239DE80198D6A7B00184AEE /* SocialMediaSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialMediaSvc.h; sourceTree = "<group>"; };
+		2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialMediaSvc.m; sourceTree = "<group>"; };
+		2239DE83198D6A9B00184AEE /* SocialMediaStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialMediaStatus.h; sourceTree = "<group>"; };
+		2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialMediaStatus.m; sourceTree = "<group>"; };
+		2239DF0A198D752E00184AEE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		2239DF0C198D7CD100184AEE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcFakeTests.m; sourceTree = "<group>"; };
 		223BF9B41969E35E00D327B9 /* CourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseTableViewController.h; sourceTree = "<group>"; };
 		223BF9B51969E35E00D327B9 /* CourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTableViewController.m; sourceTree = "<group>"; };
@@ -91,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2239DF0D198D7CD100184AEE /* Accounts.framework in Frameworks */,
+				2239DF0B198D752E00184AEE /* Social.framework in Frameworks */,
 				221E4FEF19689CD500F83582 /* CoreGraphics.framework in Frameworks */,
 				221E4FF119689CD500F83582 /* UIKit.framework in Frameworks */,
 				221E4FED19689CD500F83582 /* Foundation.framework in Frameworks */,
@@ -134,6 +146,8 @@
 		221E4FEB19689CD500F83582 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2239DF0C198D7CD100184AEE /* Accounts.framework */,
+				2239DF0A198D752E00184AEE /* Social.framework */,
 				221E4FEC19689CD500F83582 /* Foundation.framework */,
 				221E4FEE19689CD500F83582 /* CoreGraphics.framework */,
 				221E4FF019689CD500F83582 /* UIKit.framework */,
@@ -204,6 +218,10 @@
 				221E52B11971D83700E00801 /* ProgramSvcJson.m */,
 				227C8433197AE9AE006B4DB9 /* ProgramSvcJsonAF.h */,
 				227C8434197AE9AE006B4DB9 /* ProgramSvcJsonAF.m */,
+				2239DE80198D6A7B00184AEE /* SocialMediaSvc.h */,
+				2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */,
+				2239DE83198D6A9B00184AEE /* SocialMediaStatus.h */,
+				2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -355,11 +373,13 @@
 				223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */,
 				221E502B1968AE2E00F83582 /* Program.m in Sources */,
 				227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */,
+				2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */,
 				221E4FFD19689CD500F83582 /* AppDelegate.m in Sources */,
 				221E4FF919689CD500F83582 /* main.m in Sources */,
 				221E52B71971DBCA00E00801 /* Course.m in Sources */,
 				221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */,
 				221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */,
+				2239DE82198D6A7B00184AEE /* SocialMediaSvc.m in Sources */,
 				221E50281968AD3100F83582 /* ProgramSvcFake.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
