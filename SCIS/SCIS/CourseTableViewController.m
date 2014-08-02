@@ -9,6 +9,7 @@
 #import "CourseTableViewController.h"
 #import "Course.h"
 #import "ProgramSvcJsonAF.h"
+#import "SocialMediaSvc.h"
 
 @interface CourseTableViewController ()
 
@@ -26,6 +27,26 @@
 }
 - (BOOL) areCoursesLoaded {
     return _courses != nil;
+}
+
+#pragma mark - Social Media Actions
+
+- (IBAction)shareTapped:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the Regis University %@ Program", self.program.name];
+    NSURL *url = [NSURL URLWithString:@"http://regis.edu"];
+    [SocialMediaSvc shareMessage:message andUrl:url fromViewController:self];
+}
+
+- (IBAction)facebookTapped:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the Regis University %@ Program", self.program.name];
+    NSURL *url = [NSURL URLWithString:@"http://regis.edu"];
+    [SocialMediaSvc updateFacebookWithMessage:message andUrl:url fromViewController:self];
+}
+
+- (IBAction)twitterTapped:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the @regisunivcps %@ Program", self.program.name];
+    NSURL *url = [NSURL URLWithString:@"http://regis.edu"];
+    [SocialMediaSvc tweetMessage:message andUrl:url fromViewController:self];
 }
 
 #pragma mark - UIViewController
@@ -60,6 +81,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 #pragma mark - Table view data source

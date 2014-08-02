@@ -22,4 +22,8 @@
 - (void) setService:(id <ProgramSvc>) service;
 - (BOOL) areCoursesLoaded;
 
+- (IBAction)shareTapped:(id)sender;
+- (IBAction)facebookTapped:(id)sender;
+- (IBAction)twitterTapped:(id)sender;
+
 @end

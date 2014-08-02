@@ -11,7 +11,7 @@
 
 @implementation SocialMediaSvc
 
-+ (void) postMessage:(NSString *)message andUrl:(NSURL *)url fromViewController:(UIViewController*) viewController {
++ (void) shareMessage:(NSString *)message andUrl:(NSURL *)url fromViewController:(UIViewController*) viewController {
     NSArray *activityItems = @[message, url];
     UIActivityViewController *activityController =[[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     [viewController presentViewController:activityController animated:YES completion:nil];

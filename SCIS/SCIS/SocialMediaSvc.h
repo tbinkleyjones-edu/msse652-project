@@ -10,7 +10,7 @@
 
 @interface SocialMediaSvc : NSObject
 
-+ (void) postMessage:(NSString *)message andUrl:(NSURL *)url fromViewController:(UIViewController*) viewController;
++ (void) shareMessage:(NSString *)message andUrl:(NSURL *)url fromViewController:(UIViewController*) viewController;
 + (void) updateFacebookWithMessage:(NSString *)message andUrl:(NSURL *)url fromViewController:(UIViewController*) viewController;
 + (void) tweetMessage:(NSString *)message  andUrl:(NSURL *)url fromViewController:(UIViewController*) viewController;
 + (void) fetchTweetsUsingQuery:(NSString *)query completion:(void(^)(NSArray *))completion;

@@ -84,7 +84,26 @@
                             <outlet property="delegate" destination="gqD-6p-05B" id="qjb-GS-SU7"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Share" id="IcV-bJ-UQK">
+                            <connections>
+                                <action selector="shareTapped:" destination="gqD-6p-05B" id="d9U-VU-Vx2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Zzp-0O-RbS"/>
+                        <barButtonItem title="Facebook" id="9T0-mp-xvG">
+                            <connections>
+                                <action selector="facebookTapped:" destination="gqD-6p-05B" id="5ne-KS-MJI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Twitter" id="MYm-l8-ybR">
+                            <connections>
+                                <action selector="twitterTapped:" destination="gqD-6p-05B" id="wCI-PK-qWv"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Courses" id="KzO-am-aCQ" userLabel="Navigation Item - Courses"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cue-fB-HoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
