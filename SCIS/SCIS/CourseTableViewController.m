@@ -31,6 +31,10 @@
 
 #pragma mark - Social Media Actions
 
+/* The following button tap handlers allow the user to share, tweet, or update Facebook,
+ * with a message about the selected program and a link to regis.edu.
+ */
+
 - (IBAction)shareTapped:(id)sender {
     NSString *message = [NSString stringWithFormat:@"I'm reviewing the courses in the Regis University %@ Program", self.program.name];
     NSURL *url = [NSURL URLWithString:@"http://regis.edu"];

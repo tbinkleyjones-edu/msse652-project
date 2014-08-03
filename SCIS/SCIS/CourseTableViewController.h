@@ -11,7 +11,10 @@
 #import "ProgramSvc.h"
 
 /**
- The table view controller for the Course View Controller in Main.storyboard
+ * The table view controller for the Course View Controller in Main.storyboard.
+ * The view displays a list of Courses for a specified Program. The view 
+ * also displays toolbar buttons allowing the user to share, tweet, or update Facebook,
+ * with a message about the selected program and a link to regis.edu.
  */
 @interface CourseTableViewController : UITableViewController <ProgramSvcDelegate>
 

@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+/**
+ * The SocialMediaStatus class represents basic information from a Twitter tweet or a Facebook status update.
+ */
 @interface SocialMediaStatus : NSObject
 
 @property (nonatomic, strong) NSString *name;

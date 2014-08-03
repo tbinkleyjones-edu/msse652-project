@@ -27,6 +27,8 @@
     return self;
 }
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,6 +39,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    
+    // The Twitter API query string to retrieve a list of tweets from/about @RegisUniverity and @regisnnivcps,
+    // or that contain the hashtag #thisisregis
     NSString *query = @"%23thisisregis%20OR%20%40RegisUniversity%20OR%20%40regisunivcps";
     [SocialMediaSvc fetchTweetsUsingQuery: query completion:^(NSArray *tweets) {
         NSLog(@"fetch returned %d tweets", tweets.count);
@@ -50,8 +55,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
