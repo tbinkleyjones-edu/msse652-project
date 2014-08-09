@@ -15,11 +15,9 @@ static NSString *const NOTE_ID = @"noteId_";
     void (^_handler)();
 }
 
-- (instancetype)initWithHandler:(void(^)())handler
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _handler = handler;
         _notes = [[NSMutableArray alloc] init];
         [self unpackNotes];
 
@@ -29,6 +27,15 @@ static NSString *const NOTE_ID = @"noteId_";
                                                      name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
                                                    object:store];
         [[NSUbiquitousKeyValueStore defaultStore] synchronize];
+    }
+    return self;
+}
+
+- (instancetype)initWithHandler:(void(^)())handler
+{
+    self = [self init];
+    if (self) {
+        _handler = handler;
     }
     return self;
 }
