@@ -77,7 +77,7 @@
                             results = [SocialMediaSvc parseTwitterQueryResponseData: responseData];
                         } else {
                             // an error occured, complete with nil (i.e. leave results as is)
-                            NSLog(@"The response status code is %d", urlResponse.statusCode);
+                            NSLog(@"The response status code is %ld", (long)urlResponse.statusCode);
                         }
                     }
                     // complete with results

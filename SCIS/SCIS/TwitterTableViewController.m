@@ -44,7 +44,7 @@
     // or that contain the hashtag #thisisregis
     NSString *query = @"%23thisisregis%20OR%20%40RegisUniversity%20OR%20%40regisunivcps";
     [SocialMediaSvc fetchTweetsUsingQuery: query completion:^(NSArray *tweets) {
-        NSLog(@"fetch returned %d tweets", tweets.count);
+        NSLog(@"fetch returned %lu tweets", (unsigned long)tweets.count);
         _tweets = tweets;
         [self.tableView reloadData];
     }];
@@ -65,7 +65,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numberOfRowsInSection: %i", _tweets.count);
+    NSLog(@"numberOfRowsInSection: %lu", (unsigned long)_tweets.count);
     // Return the number of rows in the section.
     return _tweets.count;
 }

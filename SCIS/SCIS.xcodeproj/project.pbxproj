@@ -25,6 +25,8 @@
 		221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E502D1968AF4300F83582 /* ProgramTableViewController.m */; };
 		221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B11971D83700E00801 /* ProgramSvcJson.m */; };
 		221E52B71971DBCA00E00801 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B61971DBCA00E00801 /* Course.m */; };
+		2234CCE01996CEF5003566DF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCDF1996CEF5003566DF /* Note.m */; };
+		2234CCE31996CF03003566DF /* NoteSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCE21996CF03003566DF /* NoteSvc.m */; };
 		2239DE82198D6A7B00184AEE /* SocialMediaSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */; };
 		2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */; };
 		2239DF0B198D752E00184AEE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2239DF0A198D752E00184AEE /* Social.framework */; };
@@ -79,6 +81,10 @@
 		221E52B11971D83700E00801 /* ProgramSvcJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJson.m; sourceTree = "<group>"; };
 		221E52B51971DBCA00E00801 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		221E52B61971DBCA00E00801 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		2234CCDE1996CEF5003566DF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		2234CCDF1996CEF5003566DF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		2234CCE11996CF03003566DF /* NoteSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteSvc.h; sourceTree = "<group>"; };
+		2234CCE21996CF03003566DF /* NoteSvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteSvc.m; sourceTree = "<group>"; };
 		2239DE80198D6A7B00184AEE /* SocialMediaSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialMediaSvc.h; sourceTree = "<group>"; };
 		2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialMediaSvc.m; sourceTree = "<group>"; };
 		2239DE83198D6A9B00184AEE /* SocialMediaStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialMediaStatus.h; sourceTree = "<group>"; };
@@ -227,6 +233,10 @@
 				2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */,
 				2239DE83198D6A9B00184AEE /* SocialMediaStatus.h */,
 				2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */,
+				2234CCDE1996CEF5003566DF /* Note.h */,
+				2234CCDF1996CEF5003566DF /* Note.m */,
+				2234CCE11996CF03003566DF /* NoteSvc.h */,
+				2234CCE21996CF03003566DF /* NoteSvc.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -375,9 +385,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2234CCE01996CEF5003566DF /* Note.m in Sources */,
 				223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */,
 				2239DF10198D988C00184AEE /* TwitterTableViewController.m in Sources */,
 				221E502B1968AE2E00F83582 /* Program.m in Sources */,
+				2234CCE31996CF03003566DF /* NoteSvc.m in Sources */,
 				227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */,
 				2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */,
 				221E4FFD19689CD500F83582 /* AppDelegate.m in Sources */,
