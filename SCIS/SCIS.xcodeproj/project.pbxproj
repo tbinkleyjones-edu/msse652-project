@@ -26,8 +26,10 @@
 		221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B11971D83700E00801 /* ProgramSvcJson.m */; };
 		221E52B71971DBCA00E00801 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E52B61971DBCA00E00801 /* Course.m */; };
 		2234CCE01996CEF5003566DF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCDF1996CEF5003566DF /* Note.m */; };
-		2234CCE31996CF03003566DF /* NoteSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCE21996CF03003566DF /* NoteSvc.m */; };
-		2234CCE51996D230003566DF /* NoteSvcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCE41996D230003566DF /* NoteSvcTests.m */; };
+		2234CCE31996CF03003566DF /* NoteSvcCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCE21996CF03003566DF /* NoteSvcCloud.m */; };
+		2234CCE51996D230003566DF /* NoteSvcCloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCE41996D230003566DF /* NoteSvcCloudTests.m */; };
+		2234CCE81996DA6F003566DF /* NoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCE71996DA6F003566DF /* NoteTableViewController.m */; };
+		2234CCEB1996E065003566DF /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2234CCEA1996E065003566DF /* NoteViewController.m */; };
 		2239DE82198D6A7B00184AEE /* SocialMediaSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */; };
 		2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */; };
 		2239DF0B198D752E00184AEE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2239DF0A198D752E00184AEE /* Social.framework */; };
@@ -84,9 +86,15 @@
 		221E52B61971DBCA00E00801 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		2234CCDE1996CEF5003566DF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		2234CCDF1996CEF5003566DF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		2234CCE11996CF03003566DF /* NoteSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteSvc.h; sourceTree = "<group>"; };
-		2234CCE21996CF03003566DF /* NoteSvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteSvc.m; sourceTree = "<group>"; };
-		2234CCE41996D230003566DF /* NoteSvcTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteSvcTests.m; sourceTree = "<group>"; };
+		2234CCE11996CF03003566DF /* NoteSvcCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteSvcCloud.h; sourceTree = "<group>"; };
+		2234CCE21996CF03003566DF /* NoteSvcCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteSvcCloud.m; sourceTree = "<group>"; };
+		2234CCE41996D230003566DF /* NoteSvcCloudTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteSvcCloudTests.m; sourceTree = "<group>"; };
+		2234CCE61996DA6F003566DF /* NoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewController.h; sourceTree = "<group>"; };
+		2234CCE71996DA6F003566DF /* NoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewController.m; sourceTree = "<group>"; };
+		2234CCE91996E065003566DF /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
+		2234CCEA1996E065003566DF /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
+		2234CCEC1996E270003566DF /* SCIS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SCIS.entitlements; sourceTree = "<group>"; };
+		2234CCED1997E48C003566DF /* NoteSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteSvc.h; sourceTree = "<group>"; };
 		2239DE80198D6A7B00184AEE /* SocialMediaSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialMediaSvc.h; sourceTree = "<group>"; };
 		2239DE81198D6A7B00184AEE /* SocialMediaSvc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialMediaSvc.m; sourceTree = "<group>"; };
 		2239DE83198D6A9B00184AEE /* SocialMediaStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialMediaStatus.h; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 		221E4FF219689CD500F83582 /* SCIS */ = {
 			isa = PBXGroup;
 			children = (
+				2234CCEC1996E270003566DF /* SCIS.entitlements */,
 				221E50241968ACC000F83582 /* model */,
 				221E4FFB19689CD500F83582 /* AppDelegate.h */,
 				221E4FFC19689CD500F83582 /* AppDelegate.m */,
@@ -183,6 +192,10 @@
 				223BF9B51969E35E00D327B9 /* CourseTableViewController.m */,
 				2239DF0E198D988C00184AEE /* TwitterTableViewController.h */,
 				2239DF0F198D988C00184AEE /* TwitterTableViewController.m */,
+				2234CCE61996DA6F003566DF /* NoteTableViewController.h */,
+				2234CCE71996DA6F003566DF /* NoteTableViewController.m */,
+				2234CCE91996E065003566DF /* NoteViewController.h */,
+				2234CCEA1996E065003566DF /* NoteViewController.m */,
 			);
 			path = SCIS;
 			sourceTree = "<group>";
@@ -237,8 +250,9 @@
 				2239DE84198D6A9B00184AEE /* SocialMediaStatus.m */,
 				2234CCDE1996CEF5003566DF /* Note.h */,
 				2234CCDF1996CEF5003566DF /* Note.m */,
-				2234CCE11996CF03003566DF /* NoteSvc.h */,
-				2234CCE21996CF03003566DF /* NoteSvc.m */,
+				2234CCED1997E48C003566DF /* NoteSvc.h */,
+				2234CCE11996CF03003566DF /* NoteSvcCloud.h */,
+				2234CCE21996CF03003566DF /* NoteSvcCloud.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -251,7 +265,7 @@
 				223BF9B21969D4EF00D327B9 /* ProgramSvcFakeTests.m */,
 				227C843B197AEBF5006B4DB9 /* ProgramSvcJsonTests.m */,
 				227C8439197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m */,
-				2234CCE41996D230003566DF /* NoteSvcTests.m */,
+				2234CCE41996D230003566DF /* NoteSvcCloudTests.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -305,6 +319,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = msse652;
 				TargetAttributes = {
+					221E4FE819689CD500F83582 = {
+						DevelopmentTeam = ZBS9NHSD9X;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					221E500C19689CD500F83582 = {
 						TestTargetID = 221E4FE819689CD500F83582;
 					};
@@ -392,13 +414,15 @@
 				223BF9B61969E35E00D327B9 /* CourseTableViewController.m in Sources */,
 				2239DF10198D988C00184AEE /* TwitterTableViewController.m in Sources */,
 				221E502B1968AE2E00F83582 /* Program.m in Sources */,
-				2234CCE31996CF03003566DF /* NoteSvc.m in Sources */,
+				2234CCEB1996E065003566DF /* NoteViewController.m in Sources */,
+				2234CCE31996CF03003566DF /* NoteSvcCloud.m in Sources */,
 				227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */,
 				2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */,
 				221E4FFD19689CD500F83582 /* AppDelegate.m in Sources */,
 				221E4FF919689CD500F83582 /* main.m in Sources */,
 				221E52B71971DBCA00E00801 /* Course.m in Sources */,
 				221E52B21971D83700E00801 /* ProgramSvcJson.m in Sources */,
+				2234CCE81996DA6F003566DF /* NoteTableViewController.m in Sources */,
 				221E502E1968AF4300F83582 /* ProgramTableViewController.m in Sources */,
 				2239DE82198D6A7B00184AEE /* SocialMediaSvc.m in Sources */,
 				221E50281968AD3100F83582 /* ProgramSvcFake.m in Sources */,
@@ -413,7 +437,7 @@
 				223BF9B31969D4EF00D327B9 /* ProgramSvcFakeTests.m in Sources */,
 				223BF9B81969EDAA00D327B9 /* CourseTableViewControllerTests.m in Sources */,
 				221E501B19689CD500F83582 /* ProgramTableViewControllerTests.m in Sources */,
-				2234CCE51996D230003566DF /* NoteSvcTests.m in Sources */,
+				2234CCE51996D230003566DF /* NoteSvcCloudTests.m in Sources */,
 				227C843C197AEBF5006B4DB9 /* ProgramSvcJsonTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,10 +556,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SCIS/SCIS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SCIS/SCIS-Prefix.pch";
 				INFOPLIST_FILE = "SCIS/SCIS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -546,10 +575,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SCIS/SCIS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SCIS/SCIS-Prefix.pch";
 				INFOPLIST_FILE = "SCIS/SCIS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

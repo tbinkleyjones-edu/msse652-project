@@ -10,6 +10,10 @@
 #import "Program.h"
 #import "Course.h"
 
+/**
+ A ProgramSvc implementation that makes use of Foundation Framework components - specifically
+ NSURLConnection and NSMutableURLRequest. T
+ */
 @implementation ProgramSvcJson {
     id _delegate;
     Program *_program;
@@ -19,6 +23,10 @@
     NSMutableData *_courseData;
 }
 
+/**
+ A private method used to build Progam objects from the JSON document
+ returned by the Regis web service.
+ */
 - (NSMutableArray *)parseProgramData:(NSData *)data {
     NSError *error;
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -44,6 +52,10 @@
     return result;
 }
 
+/**
+ A private method used to build Course objects from the JSON document
+ returned by the Regis web service. 
+ */
 - (NSMutableArray *)parseCourseData:(NSData *)data {
     NSError *error;
     NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];

@@ -29,4 +29,8 @@ static NSString *const DATE = @"date";
     [coder encodeObject:self.date forKey:DATE];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@", _notes];
+}
 @end

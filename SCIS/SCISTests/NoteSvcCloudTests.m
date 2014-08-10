@@ -7,20 +7,21 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NoteSvc.h"
+#import "NoteSvcCloud.h"
 
-@interface NoteSvcTests : XCTestCase
+@interface NoteSvcCloudTests : XCTestCase
 
 @end
 
-@implementation NoteSvcTests
+@implementation NoteSvcCloudTests
 
 - (Note*)findNote:(Note *)note inArray:(NSArray *)notes {
     __block Note *foundNote = nil;
     [notes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Note *note = obj;
-        if ([note.date isEqual:note.date]) {
-            foundNote = note;
+        Note *existingNote = obj;
+        if ([existingNote.date isEqual:note.date]) {
+            NSLog(@"Found note: %@", existingNote);
+            foundNote = existingNote;
             (*stop) = YES;
         }
     }];
@@ -29,7 +30,7 @@
 
 - (void)testAddUpdateDelete
 {
-    NoteSvc *service = [[NoteSvc alloc] init];
+    NoteSvcCloud *service = [[NoteSvcCloud alloc] init];
 
     NSUInteger initialCount = [service retrieveAllNotes].count;
     NSString *testString1 = @"test note";
