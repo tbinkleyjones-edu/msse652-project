@@ -10,7 +10,7 @@
 #import "Note.h"
 
 /**
- * The ProgramSvc protocol defines methods for retrieving and storing Notes.
+ * The NoteSvc protocol defines methods for retrieving and storing Notes.
  */
 @protocol NoteSvc <NSObject>
 

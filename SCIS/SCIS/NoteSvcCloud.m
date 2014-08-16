@@ -33,7 +33,7 @@ static NSString *const NOTE_ID = @"noteId_";
 
 /**
  * A custom init routine that accepts a handler block. The handler is called
- * whenever the collection of notes is changed. The handler will be calle by
+ * whenever the collection of notes is changed. The handler will be called by
  * the addNote, updateNote, and deleteNote methods. The handler is also called
  * when external changes are received from iCloud.
  */

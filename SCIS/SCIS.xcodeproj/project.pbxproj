@@ -41,6 +41,8 @@
 		227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C8434197AE9AE006B4DB9 /* ProgramSvcJsonAF.m */; };
 		227C843A197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C8439197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m */; };
 		227C843C197AEBF5006B4DB9 /* ProgramSvcJsonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C843B197AEBF5006B4DB9 /* ProgramSvcJsonTests.m */; };
+		22FF202D199FD04000F00F7B /* ChatSvcCF.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FF202C199FD04000F00F7B /* ChatSvcCF.m */; };
+		22FF2033199FE2D900F00F7B /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FF2032199FE2D900F00F7B /* ChatViewController.m */; };
 		CE80C4F131B64A6285AECF95 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5BD57BC2C94449A9E0F492E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,11 @@
 		227C8434197AE9AE006B4DB9 /* ProgramSvcJsonAF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonAF.m; sourceTree = "<group>"; };
 		227C8439197AEBDD006B4DB9 /* ProgramSvcJsonAFTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonAFTests.m; sourceTree = "<group>"; };
 		227C843B197AEBF5006B4DB9 /* ProgramSvcJsonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramSvcJsonTests.m; sourceTree = "<group>"; };
+		22FF202B199FD04000F00F7B /* ChatSvcCF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSvcCF.h; sourceTree = "<group>"; };
+		22FF202C199FD04000F00F7B /* ChatSvcCF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSvcCF.m; sourceTree = "<group>"; };
+		22FF2031199FE2D900F00F7B /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		22FF2032199FE2D900F00F7B /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		22FF2036199FF84600F00F7B /* ChatSvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSvc.h; sourceTree = "<group>"; };
 		4DF03F302D4C45ACBEFA652F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F5BD57BC2C94449A9E0F492E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -196,6 +203,8 @@
 				2234CCE71996DA6F003566DF /* NoteTableViewController.m */,
 				2234CCE91996E065003566DF /* NoteViewController.h */,
 				2234CCEA1996E065003566DF /* NoteViewController.m */,
+				22FF2031199FE2D900F00F7B /* ChatViewController.h */,
+				22FF2032199FE2D900F00F7B /* ChatViewController.m */,
 			);
 			path = SCIS;
 			sourceTree = "<group>";
@@ -253,6 +262,9 @@
 				2234CCED1997E48C003566DF /* NoteSvc.h */,
 				2234CCE11996CF03003566DF /* NoteSvcCloud.h */,
 				2234CCE21996CF03003566DF /* NoteSvcCloud.m */,
+				22FF2036199FF84600F00F7B /* ChatSvc.h */,
+				22FF202B199FD04000F00F7B /* ChatSvcCF.h */,
+				22FF202C199FD04000F00F7B /* ChatSvcCF.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -418,6 +430,8 @@
 				2234CCE31996CF03003566DF /* NoteSvcCloud.m in Sources */,
 				227C8435197AE9AE006B4DB9 /* ProgramSvcJsonAF.m in Sources */,
 				2239DE85198D6A9B00184AEE /* SocialMediaStatus.m in Sources */,
+				22FF2033199FE2D900F00F7B /* ChatViewController.m in Sources */,
+				22FF202D199FD04000F00F7B /* ChatSvcCF.m in Sources */,
 				221E4FFD19689CD500F83582 /* AppDelegate.m in Sources */,
 				221E4FF919689CD500F83582 /* main.m in Sources */,
 				221E52B71971DBCA00E00801 /* Course.m in Sources */,
