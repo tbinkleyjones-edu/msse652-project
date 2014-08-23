@@ -10,6 +10,7 @@
 #import "SRWebSocket.h"
 
 NSString *const CHATURL = @"ws://echo.websocket.org/";
+//NSString *const CHATURL = @"http://www.regisscis.net:8080/";
 
 @interface ChatSvcSR () <SRWebSocketDelegate>
 
@@ -92,7 +93,7 @@ NSString *const CHATURL = @"ws://echo.websocket.org/";
  */
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    NSLog(@"Websocket closed with code: %i", code);
+    NSLog(@"Websocket closed with code: %i and reason:%@", code, reason);
     _handler(@"Connection closed");
     _webSocket = nil;
 }
