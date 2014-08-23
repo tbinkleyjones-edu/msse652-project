@@ -7,7 +7,8 @@
 //
 
 #import "ChatViewController.h"
-#import "ChatSvcCF.h"
+//#import "ChatSvcCF.h"
+#import "ChatSvcSR.h"
 
 /** 
  * A private class used to pair message text with the text from a sender.
@@ -30,7 +31,7 @@
 
 @implementation ChatViewController {
     NSMutableArray *_messages;
-    ChatSvcCF *_service;
+    id <ChatSvc> _service;
 }
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,7 +57,7 @@
     _messages = [[NSMutableArray alloc] init];
 
     // initialize and connect the chat service
-    _service = [[ChatSvcCF alloc] initWithHandler:^(NSString *messageText) {
+    _service = [[ChatSvcSR alloc] initWithHandler:^(NSString *messageText) {
         // the handler creates a Message object, adds it to the colletion, and tells the table view to reload.
         Message *message = [[Message alloc] init];
         message.text = messageText;

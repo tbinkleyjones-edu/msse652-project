@@ -26,7 +26,7 @@ UInt32 CHAT_PORT = 8080;
 }
 
 /**
- * Creat and open the input and output streams (which automatically opens the socket),
+ * Create and open the input and output streams (which automatically opens the socket),
  * schedule the streams with a run loop, and set the streams delegate
  */
 - (void) connect {
